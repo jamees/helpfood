@@ -1,14 +1,13 @@
 package cl.deeb.helpfood.activities;
 
-import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
+import android.graphics.drawable.AnimatedStateListDrawable;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,11 +15,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -33,10 +30,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Locale;
+import org.w3c.dom.Text;
 
 import cl.deeb.helpfood.R;
 import cl.deeb.helpfood.fragments.Fragment1;
+import cl.deeb.helpfood.fragments.Fragment2;
+import cl.deeb.helpfood.fragments.Fragment3;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView emailTextView;
     private TextView uidTextView;
     private ImageView photoImageView;
+
+
 
     private TextView mensajeTextView;
     private EditText mensajeEditText;
@@ -65,9 +66,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 
-        nameTextView = (TextView) findViewById(R.id.nameTextView);
+      //  nameTextView = (TextView) findViewById(R.id.nameTextView);
         emailTextView = (TextView) findViewById(R.id.emailTextView);
         uidTextView = (TextView) findViewById(R.id.uidTextView);
         photoImageView = (ImageView) findViewById(R.id.photoImageView);
@@ -87,16 +89,26 @@ public class MainActivity extends AppCompatActivity {
             Uri photoUrl = user.getPhotoUrl();
             String uid = user.getUid();
 
-            nameTextView.setText(name);
+//            nameTextView.setText(name);
             emailTextView.setText(email);
             uidTextView.setText(uid);
 
             Glide.with(this).load(user.getPhotoUrl()).into(photoImageView);
 
+            //RelativeLayout rl = (RelativeLayout) findViewById(R.id.userDataLayout);
+
+
+            View vi = inflater.inflate(R.layout.header_navview, null);
+            TextView tv = (TextView) vi.findViewById(R.id.nombreUsuario);
+            tv.setText("Data desde alsas");
+            //rl.addView(vi);
+
+
         } else{
             goToLoginScreen();
         }
 
+        //El siguiente codigo es para la navegacion
 
         appbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(appbar);
@@ -122,11 +134,11 @@ public class MainActivity extends AppCompatActivity {
                                 fragmentTransaction = true;
                                 break;
                             case R.id.menu_seccion_2:
-                            //    fragment = new Fragment2();
+                                fragment = new Fragment2();
                                 fragmentTransaction = true;
                                 break;
                             case R.id.menu_seccion_3:
-                            //    fragment = new Fragment3();
+                                fragment = new Fragment3();
                                 fragmentTransaction = true;
                                 break;
                             case R.id.menu_opcion_1:
@@ -152,11 +164,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-
-
-
     }
-
 
 
 

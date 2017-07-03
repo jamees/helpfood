@@ -6,6 +6,9 @@ package cl.deeb.helpfood;
 
 import android.app.Application;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 import cl.deeb.helpfood.globals.Globals;
 
 public class IntroApp extends Application {
@@ -13,8 +16,8 @@ public class IntroApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-       // FacebookSdk.sdkInitialize(getApplicationContext());
-       // AppEventsLogger.activateApp(this);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         Globals.init(this);
     }
 }

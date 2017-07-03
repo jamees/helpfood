@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- The main content view -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="cl.deeb.helpfood.cl.deeb.helpfood.activities.MainActivity"
+            android:fitsSystemWindows="true"
+            tools:openDrawer="start">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/view2"
+                app:cardCornerRadius="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/emailTextView"
+                android:innerRadius="0dp"
+                android:shape="ring"
+                android:thicknessRatio="1.9"
+                android:layout_marginBottom="16dp">
+                <ImageView
+                    android:id="@+id/photoImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    />
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Nombre"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/emailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_above="@id/nameTextView"
+                android:text="Email"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:id="@+id/uidTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_below="@id/nameTextView"
+                android:text="UID"
+                android:textSize="14sp"
+                />
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mensajeTextView"
+                android:textSize="30sp"
+                android:layout_below="@+id/uidTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:paddingTop="20sp"
+                android:text="Hola"/>
+
+            <EditText
+                android:id="@+id/mensajeEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mensajeTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:width="300sp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mensajeEditText"
+                android:layout_centerVertical="true"
+                android:text=">"
+                android:onClick="modificar"
+                android:layout_alignLeft="@+id/emailTextView"
+                android:layout_alignStart="@+id/emailTextView"
+                android:layout_alignRight="@+id/emailTextView"
+                android:layout_alignEnd="@+id/emailTextView" />
+
+
+            <Button
+                android:onClick="logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:text="@string/logout"
+                />
+
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

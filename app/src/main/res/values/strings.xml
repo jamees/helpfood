@@ -48,6 +48,14 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_websearch">Web search</string>
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="usuario">Nombre</string>
+    <string name="seccion_1">Encontrar Lugares</string>
+    <string name="seccion_2">Revisar Productos</string>
+    <string name="seccion_3">Comunidad</string>
+    <string name="otras_opciones">Otros</string>
+    <string name="opcion_1">Agregar Familiar</string>
+    <string name="opcion_2">Salir</string>
+    <string name="fragment1">Fragmento1</string>
 
 
 </resources>
